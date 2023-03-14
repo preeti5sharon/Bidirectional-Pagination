@@ -1,4 +1,4 @@
-package github.preeti5sharon.bipagination
+package github.preeti5sharon.bipagination.database
 
 import androidx.room.Database
 import androidx.room.RoomDatabase
