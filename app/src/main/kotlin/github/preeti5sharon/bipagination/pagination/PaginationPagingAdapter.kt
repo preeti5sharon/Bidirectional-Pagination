@@ -3,15 +3,15 @@ package github.preeti5sharon.bipagination.pagination
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.paging.DifferCallback
 import androidx.paging.PagingDataAdapter
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
-import com.example.bidirectionalpagination.R
-import com.example.bidirectionalpagination.databinding.RecyclerItemBinding
+import github.preeti5sharon.bipagination.R
 import github.preeti5sharon.bipagination.database.ItemClass
+import github.preeti5sharon.bipagination.databinding.RecyclerItemBinding
 
-class PaginationPagingAdapter() : PagingDataAdapter<ItemClass, RecyclerView.ViewHolder>(diffCallback = ) {
+class PaginationPagingAdapter() :
+    PagingDataAdapter<ItemClass, RecyclerView.ViewHolder>(diffCallback = PaginationDiffer()) {
 
     class PaginationDiffer : DiffUtil.ItemCallback<ItemClass>() {
         override fun areItemsTheSame(oldItem: ItemClass, newItem: ItemClass): Boolean {
@@ -25,7 +25,7 @@ class PaginationPagingAdapter() : PagingDataAdapter<ItemClass, RecyclerView.View
 
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
         val binding = RecyclerItemBinding.bind(holder.itemView)
-        binding.textView.text =
+        binding.textView.text = getItem(position)?.item?.toString()
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {

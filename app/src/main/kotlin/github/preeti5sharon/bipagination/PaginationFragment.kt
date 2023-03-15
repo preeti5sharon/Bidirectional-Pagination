@@ -7,10 +7,12 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
-import com.example.bidirectionalpagination.databinding.FragmentPaginationBinding
+import dagger.hilt.android.AndroidEntryPoint
+import github.preeti5sharon.bipagination.databinding.FragmentPaginationBinding
 import github.preeti5sharon.bipagination.pagination.PaginationPagingAdapter
 import kotlinx.coroutines.launch
 
+@AndroidEntryPoint
 class PaginationFragment : Fragment() {
     private var binding: FragmentPaginationBinding? = null
     private val paginationAdapter = PaginationPagingAdapter()

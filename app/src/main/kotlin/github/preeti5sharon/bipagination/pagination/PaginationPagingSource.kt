@@ -15,17 +15,17 @@ class PaginationPagingSource(
     override suspend fun load(params: LoadParams<Int>): LoadResult<Int, ItemClass> {
         val offset = params.key ?: 1000
         val loadSize = params.loadSize
-        val items = paginationDao.fetchItems(loadSize, offset)
+        val items = paginationDao.fetchItems(1 * loadSize, offset)
 
         return LoadResult.Page(
             data = items,
             prevKey = if (offset == 0) {
                 null
             } else {
-                offset - 1
+                offset - (1 * loadSize)
             },
-            nextKey = if (offset<2000) {
-                offset + 1
+            nextKey = if (offset < 2000) {
+                offset + (1 * loadSize)
             } else {
                 null
             },

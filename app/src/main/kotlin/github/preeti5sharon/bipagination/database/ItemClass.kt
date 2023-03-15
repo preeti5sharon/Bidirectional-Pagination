@@ -7,5 +7,5 @@ import java.util.*
 @Entity(tableName = "item_list")
 data class ItemClass(
     @PrimaryKey val item: Int,
-    val data: String = UUID.randomUUID().toString(),
+//    val data: String = UUID.randomUUID().toString(),
 )
